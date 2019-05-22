@@ -30,24 +30,42 @@ public class LinkedList {
 		int position = this.size() - index - 1;
 		
 		int count = 0;
-		while(current!=null) {
+		while (current!=null) {
 			if(count == position) { return current.data; }
 			else { count++; current = current.next; }
 		}
 		return 0;
 	}
+	
+	public void remove(int index) {
+		int position = this.size() - index - 1;
+		Node current = head; 
+		if (head == null) { return; }
+		
+		if (index == 0) { head = current.next; size--; return; }
+		
+		for(int i = 0; i < position - 1; i++) {
+			current = current.next;
+		}
+		
+		current.next = current.next.next;
+		size--;
+	}
 	public static void main(String arg[]) {
 		LinkedList list = new LinkedList();
 		
-		list.push(1);
-		list.push(14);
-		list.push(12);
+		list.push(15);
 		list.push(9);
+		list.push(17);
 		list.push(2);
-		list.push(3);
+		list.push(31);
 		
-		System.out.println(""+list.getNth(3));
-		System.out.println(list.head.data);
+		list.remove(1);
+		list.remove(3);
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.getNth(i));
+		}
+		
 	}
 }
 
