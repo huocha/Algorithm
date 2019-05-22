@@ -25,7 +25,7 @@ public class LinkedList {
 		size++;
 	}
 	
-	public int getNth(int index) {
+	public int get(int index) {
 		Node current = head;
 		int position = this.size() - index - 1;
 		
@@ -63,7 +63,7 @@ public class LinkedList {
 		list.remove(1);
 		list.remove(3);
 		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.getNth(i));
+			System.out.println(list.get(i));
 		}
 		
 	}
